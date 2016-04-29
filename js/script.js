@@ -75,7 +75,7 @@ var googleSuccess = function() {
         // set place marker infowindow and click settings.
 
         self.allPlaces.forEach(function(place) {
-            var contentString = '<div class="infoBox text-center row">' + '<h3>' + place.cityName + '</h3>' + '<h3>' + place.cityDescript + '</h3>' +
+            var contentString = '<div class="infoBox text-center row">' + '<h1>' + place.cityName + '</h1>' + '<h2>' + place.cityDescript + '</h2>' +
                 '<img class="img-responsive" src=" ' + place.streetView + '"> ' + "<div id='content'></div>" + '</div>';
 
             var markerOptions = {
