@@ -1,0 +1,11 @@
+{
+  "name": "Udacity Neighbourhood Map",
+  "version": "1.0.0",
+  "description": "P6 for Udacity Nanodegree",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}

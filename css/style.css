@@ -1,0 +1,98 @@
+*,
+*:after,
+*:before: {
+    box-sizing: inherit;
+}
+html,
+body {
+    height: 100%;
+}
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+input {
+  margin: .65em 0 .65em 8em;
+  padding: .65em 1.25em .65em 1.25em;
+  display: inline-block;
+  float: left;
+}
+html {
+    box-sizing: border-box;
+}
+html,
+h1,
+h2,
+h3,
+p,
+li {
+    font-family: 'Lato', sans-serif;
+    color: #fff;
+    font-weight: lighter;
+    cursor: pointer;
+}
+h1 {
+    font-weight: bold;
+    display: inline-block;
+}
+h2 {
+    font-weight: 300;
+}
+.infoBox h1 {
+    color: #000;
+}
+.infoBox h2 {
+    color: #000;
+}
+.menu {
+    background: #66ccff;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+    height: 100%;
+    z-index: 1;
+}
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    margin-top: .5em;
+    padding: 0 1em .5em .5em;
+    display: inline-block;
+    float: left;
+}
+.menu li a {
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #111;
+}
+a:hover h2 {
+    text-decoration: underline;
+    cursor: pointer;
+}
+li {
+    list-style: none;
+    font-size: 18px;
+}
+img {
+    text-align: center;
+}
+.img-responsive {
+
+    display: inline-block;
+}
+#map {
+    position: absolute;
+    max-height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+}

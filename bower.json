@@ -1,0 +1,17 @@
+{
+  "name": "Udacity Neighbourhood Project",
+  "version": "0.0.0",
+  "authors": [
+    "bwong199@my.bcit.ca"
+  ],
+  "description": "P6 Udacity Project",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+}
