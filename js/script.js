@@ -21,7 +21,7 @@ var googleSuccess = function() {
         },
     }, {
         cityName: "Toronto, ON",
-        cityDescript: "Where Drake lives",
+        cityDescript: "Where Drake lives and where Justin Bieber is from",
         cityStr: "Toronto, Ontario",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=toronto",
         latLng: {
@@ -30,7 +30,7 @@ var googleSuccess = function() {
         },
     }, {
         cityName: "Mountainview, CA",
-        cityDescript: "Where I learned how to program",
+        cityDescript: "Udacity - Where I learned how to program",
         cityStr: "Mountainview",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=MountainviewCalifornia",
         latLng: {
@@ -39,7 +39,7 @@ var googleSuccess = function() {
         },
     }, {
         cityName: "Kananaskis Country, AB",
-        cityDescript: "Where Leonardo DiCaprio filmed The Revenant",
+        cityDescript: "Where Leonardo DiCaprio filmed The Revenant and almost go eaten by a bear",
         cityStr: "Kananaskis Country",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=Kananaskis",
         latLng: {
@@ -57,7 +57,7 @@ var googleSuccess = function() {
                 lat: 55.513299,
                 lng: -97.1628807
             },
-            zoom: 4
+            zoom: 3
         });
 
         // Create empty array to temporarily create and store place objects.
@@ -112,6 +112,7 @@ var googleSuccess = function() {
                 var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + place.cityStr + '&format=json&callback=wikiCallback';
                 var wikiRequestTimeout = setTimeout(function() {
                     $windowContent.text("failed to get wikipedia resources");
+                    alert("failed to get wikipedia resources");
                 }, 8000);
 
                 $.ajax({
