@@ -52,7 +52,7 @@ var googleSuccess = function() {
         }
     }];
 
-    var ViewModel = function() {
+    var ViewModel = function(place) {
 
         var self = this;
         // self.googleMap is a reference storing the Google Map Object.
@@ -102,7 +102,7 @@ var googleSuccess = function() {
             }  
 
             var contentString = '<div class="infoBox text-center row">' + '<h1>' + place.cityName + '</h1>' + '<h2>' + place.cityDescript + '</h2>' +
-                '<img class="img-responsive" src=" ' + place.streetView + '"> ' + "<div id='content'></div>" + '</div>';
+                '<object class="img-responsive" data=" ' + place.streetView + '" type="image/png"><img src="http://placehold.it/100/100"></object>' + "<div id='content'></div>" + '</div>';
 
             var markerOptions = {
                 map: self.googleMap,
@@ -121,26 +121,15 @@ var googleSuccess = function() {
 
             place.marker.addListener('click', function toggleBounce() {
                 self.openLocation(place);
-                // self.infoWindow.setContent(place.marker.content);
-                // self.infoWindow.open(self.googleMap, place.marker);
-                // // place.marker.infoWindow.open(self.googleMap);
-                // getApi();
-                // if (place.marker.getAnimation() !== null) {
-                //     place.marker.setAnimation(null);
-                // } else {
-                //     place.marker.setAnimation(google.maps.Animation.BOUNCE);
-                // }
-                // setTimeout(function() {
-                //     place.marker.setAnimation(null);
-                // }, 1400);
+
             });
 
-            var getApi = function() {
+            var getApi = function(place) {
 
                 var $windowContent = $('#content');
                 var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + place.cityStr + '&format=json&callback=wikiCallback';
                 var wikiRequestTimeout = setTimeout(function() {
-                    $windowContent.text("failed to get wikipedia resources");
+                    self.infoWindow.setContent("failed to get wikipedia resources");
                     alert("failed to get wikipedia resources");
                 }, 4000);
 
@@ -157,7 +146,8 @@ var googleSuccess = function() {
                         for (i = 0; i < articleList.length; i += 1) {
                             articleStr = articleList[i];
                             url = 'http://en.wikipedia.org/wiki/' + articleStr;
-                            $windowContent.append('<li class="text-center"><a target="_blank" href="' + url + '">' + articleStr + '</a></li>');
+                            self.infoWindow.setContent('<div class="infoBox text-center row">' + '<h1>' + place.cityName + '</h1>' + '<h2>' + place.cityDescript + '</h2>' +
+                '<object class="img-responsive" data=" ' + place.streetView + '" type="image/png"><img src="http://placehold.it/100/100"></object>' + "<div id='content'></div>" + '</div>' + '<li class="text-center"><a target="_blank" href="' + url + '">' + articleStr + '</a></li>');
                         }
                         clearTimeout(wikiRequestTimeout);
                     }

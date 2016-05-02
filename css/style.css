@@ -99,4 +99,6 @@ img {
 
 .gm-style-iw {
     max-height: 50vh;
+    overflow-y: auto;
+
 }
