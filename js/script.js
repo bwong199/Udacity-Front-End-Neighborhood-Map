@@ -133,22 +133,25 @@ var googleSuccess = function() {
                     alert("failed to get wikipedia resources");
                 }, 4000);
 
+                var url;
                 $.ajax({
                     url: wikiUrl,
                     dataType: "jsonp",
                     jsonp: "callback",
                     success: function(response) {
+              
                         var articleList = response[1];
                         var i;
                         var articleStr;
                         var url;
                         $windowContent.text('');
                         for (i = 0; i < articleList.length; i += 1) {
+
                             articleStr = articleList[i];
-                            url = 'http://en.wikipedia.org/wiki/' + articleStr;
-                            self.infoWindow.setContent('<div class="infoBox text-center row">' + '<h1>' + place.cityName + '</h1>' + '<h2>' + place.cityDescript + '</h2>' +
-                '<object class="img-responsive" data=" ' + place.streetView + '" type="image/png"><img src="http://placehold.it/100/100"></object>' + "<div id='content'></div>" + '</div>' + '<li class="text-center"><a target="_blank" href="' + url + '">' + articleStr + '</a></li>');
+                            url =  'http://en.wikipedia.org/wiki/' + articleStr;
                         }
+                        self.infoWindow.setContent('<div class="infoBox text-center row">' + '<h1>' + place.cityName + '</h1>' + '<h2>' + place.cityDescript + '</h2>' +
+                        '<object class="img-responsive" data=" ' + place.streetView + '" type="image/png"><img src="http://placehold.it/100/100"></object>' + "<div id='content'></div>" + '</div>' + '<li class="text-center"><a target="_blank" href="' + url + '">' + articleStr + '</a></li>');
                         clearTimeout(wikiRequestTimeout);
                     }
                 });

@@ -98,7 +98,10 @@ img {
 }
 
 .gm-style-iw {
-    max-height: 50vh;
-    overflow-y: auto;
+/*    max-height: 50vh;*/
+/*    overflow-y: auto;*/
+}
 
+.infoBox {
+    overflow: auto;
 }
