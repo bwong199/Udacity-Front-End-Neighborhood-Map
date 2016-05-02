@@ -1,3 +1,7 @@
+function googleError(){
+    alert("Error getting Google Map");
+}
+
 var googleSuccess = function() {
     "use strict";
     // markersData variable stores the information necessary to each marker
@@ -29,9 +33,9 @@ var googleSuccess = function() {
             lng: -79.38
         },
     }, {
-        cityName: "Mountainview, CA",
+        cityName: "Mountain View, CA",
         cityDescript: "Udacity - Where I learned how to program",
-        cityStr: "Mountainview",
+        cityStr: "Mountain View",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=MountainviewCalifornia",
         latLng: {
             lat: 37.3894,
@@ -74,7 +78,29 @@ var googleSuccess = function() {
         // for each location.
         // set place marker infowindow and click settings.
 
+        self.infoWindow = new google.maps.InfoWindow({
+            content: ''
+        });
+
+     
+
         self.allPlaces.forEach(function(place) {
+
+            self.openLocation = function(place) {
+                self.infoWindow.setContent(place.marker.content);
+                self.infoWindow.open(self.googleMap, place.marker);
+                // you will need to define getApi outside of the forEach loop
+                getApi(place);
+                if (place.marker.getAnimation() !== null) {
+                    place.marker.setAnimation(null);
+                } else {
+                    place.marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+                setTimeout(function() {
+                    place.marker.setAnimation(null);
+                }, 1400);
+            }  
+
             var contentString = '<div class="infoBox text-center row">' + '<h1>' + place.cityName + '</h1>' + '<h2>' + place.cityDescript + '</h2>' +
                 '<img class="img-responsive" src=" ' + place.streetView + '"> ' + "<div id='content'></div>" + '</div>';
 
@@ -89,21 +115,24 @@ var googleSuccess = function() {
 
             place.marker.infoWindow = new google.maps.InfoWindow({
                 position: place.latLng,
-                content: contentString
+                // content: contentString
             });
             place.marker.infoWindow.setContent(place.marker.content);
 
             place.marker.addListener('click', function toggleBounce() {
-                place.marker.infoWindow.open(self.googleMap);
-                getApi();
-                if (place.marker.getAnimation() !== null) {
-                    place.marker.setAnimation(null);
-                } else {
-                    place.marker.setAnimation(google.maps.Animation.BOUNCE);
-                }
-                setTimeout(function() {
-                    place.marker.setAnimation(null);
-                }, 1400);
+                self.openLocation(place);
+                // self.infoWindow.setContent(place.marker.content);
+                // self.infoWindow.open(self.googleMap, place.marker);
+                // // place.marker.infoWindow.open(self.googleMap);
+                // getApi();
+                // if (place.marker.getAnimation() !== null) {
+                //     place.marker.setAnimation(null);
+                // } else {
+                //     place.marker.setAnimation(google.maps.Animation.BOUNCE);
+                // }
+                // setTimeout(function() {
+                //     place.marker.setAnimation(null);
+                // }, 1400);
             });
 
             var getApi = function() {
@@ -113,7 +142,7 @@ var googleSuccess = function() {
                 var wikiRequestTimeout = setTimeout(function() {
                     $windowContent.text("failed to get wikipedia resources");
                     alert("failed to get wikipedia resources");
-                }, 8000);
+                }, 4000);
 
                 $.ajax({
                     url: wikiUrl,
@@ -128,7 +157,7 @@ var googleSuccess = function() {
                         for (i = 0; i < articleList.length; i += 1) {
                             articleStr = articleList[i];
                             url = 'http://en.wikipedia.org/wiki/' + articleStr;
-                            $windowContent.append('<li class="text-center"><a href="' + url + '">' + articleStr + '</a></li>');
+                            $windowContent.append('<li class="text-center"><a target="_blank" href="' + url + '">' + articleStr + '</a></li>');
                         }
                         clearTimeout(wikiRequestTimeout);
                     }
@@ -180,6 +209,7 @@ var googleSuccess = function() {
             // marker:
             this.openInfoWindow = function() {
                 this.marker.infoWindow.open(self.googleMap, this.marker);
+                ViewModel.getApi();
             };
             this.marker = null;
         };

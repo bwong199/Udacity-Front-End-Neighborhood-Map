@@ -96,3 +96,7 @@ img {
     top: 0;
     bottom: 0;
 }
+
+.gm-style-iw {
+    max-height: 50vh;
+}

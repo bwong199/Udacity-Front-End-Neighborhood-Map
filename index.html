@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<main>
+
     <body class="container-fluid">
         <div class="row text-center">
             <div class="menu col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <form>
                     <input placeholder="SEARCH i.e. Calgary..." type="search" data-bind="textInput: userInput, event: {keyup: filterMarkers}">
                     <ul class="location-list" data-bind="foreach: visible">
-                        <li data-bind="text: cityName, click: openInfoWindow"></li>
+                        <li data-bind="text: cityName, click: $parent.openLocation"></li>
                     </ul>
                 </form>
             </div>
@@ -32,8 +32,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?callback=googleSuccess" onerror="googleError()"></script>
     <script src="js/script.js"></script>
-</main>
+    <script async src="https://maps.googleapis.com/maps/api/js?callback=googleSuccess" onerror="googleError()"></script>
+
 
 </html>
