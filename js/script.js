@@ -8,7 +8,7 @@ var googleSuccess = function() {
     var cityData = [{
         cityName: "Calgary, AB",
         cityDescript: "Where I currently live",
-        cityStr: "Calgary, Alberta",
+        cityStr: "Calgary, Alberta, Canada",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=calgary",
         latLng: {
             lat: 51.03,
@@ -17,7 +17,7 @@ var googleSuccess = function() {
     }, {
         cityName: "Vancouver, BC",
         cityDescript: "Where I grew up",
-        cityStr: "Vancouver, British Columbia",
+        cityStr: "Vancouver, British Columbia, Canada",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=vancouver",
         latLng: {
             lat: 49.28,
@@ -26,7 +26,7 @@ var googleSuccess = function() {
     }, {
         cityName: "Toronto, ON",
         cityDescript: "Where Drake lives and where Justin Bieber is from",
-        cityStr: "Toronto, Ontario",
+        cityStr: "Toronto, Ontario, Canada",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=toronto",
         latLng: {
             lat: 43.65,
@@ -35,7 +35,7 @@ var googleSuccess = function() {
     }, {
         cityName: "Mountain View, California",
         cityDescript: "Udacity - Where I learned how to program",
-        cityStr: "Mountain View, California",
+        cityStr: "Mountain View, Santa Clara County, California,",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=MountainviewCalifornia",
         latLng: {
             lat: 37.3894,
@@ -44,7 +44,7 @@ var googleSuccess = function() {
     }, {
         cityName: "Kananaskis Country, AB",
         cityDescript: "Where Leonardo DiCaprio filmed The Revenant and almost go eaten by a bear",
-        cityStr: "Kananaskis Country",
+        cityStr: "Kananaskis Country, Alberta, Canada",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=Kananaskis",
         latLng: {
             lat: 50.83,
