@@ -33,9 +33,9 @@ var googleSuccess = function() {
             lng: -79.38
         },
     }, {
-        cityName: "Mountain View, CA",
+        cityName: "Mountain View, California",
         cityDescript: "Udacity - Where I learned how to program",
-        cityStr: "Mountain View",
+        cityStr: "Mountain View, California",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=MountainviewCalifornia",
         latLng: {
             lat: 37.3894,
