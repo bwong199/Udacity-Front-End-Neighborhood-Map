@@ -44,7 +44,7 @@ var googleSuccess = function() {
     }, {
         cityName: "Kananaskis Country, AB",
         cityDescript: "Where Leonardo DiCaprio filmed The Revenant and almost go eaten by a bear",
-        cityStr: "Kananaskis Country, Alberta, Canada",
+        cityStr: "Kananaskis Village, Alberta",
         streetView: "http://maps.googleapis.com/maps/api/streetview?size=175x175&location=Kananaskis",
         latLng: {
             lat: 50.83,
